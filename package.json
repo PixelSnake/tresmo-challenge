@@ -1,0 +1,26 @@
+{
+  "name": "tresmo-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "restify": "^4.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PixelSnake/tresmo-challenge.git"
+  },
+  "author": "Thomas Neumüller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PixelSnake/tresmo-challenge/issues"
+  },
+  "engines": {
+    "node": "6.10.2"
+  },
+  "homepage": "https://github.com/PixelSnake/tresmo-challenge#readme"
+}
