@@ -1,1 +1,0 @@
-# tresmo-challenge
