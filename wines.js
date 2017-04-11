@@ -1,16 +1,31 @@
-exports.list = function (req, res, next) {
-    const data = {};
+const db = require("./database");
 
-    res.send(data);
+exports.list = function (req, res, next) {
+    db.Find({}, function(data) {
+        data.forEach(function(x) {
+            delete x._id;
+        });
+
+        res.send(data);
+    });
     next();
 };
 
 exports.getById = function(req, res, next)
 {
-    const data = {
-        id: req.params.id
-    };
+    const id = parseInt(req.params.id);
+    console.log("Getting wine #" + id);
 
-    res.send(data);
+    db.FindOne({id: id}, function(data) {
+        if (data)
+        {
+            delete data._id;
+            res.send(data);
+        }
+        else
+            res.send({
+                error: 'UNKNOWN_OBJECT'
+            });
+    });
     next();
 };

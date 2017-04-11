@@ -1,29 +1,39 @@
 var client = require("mongodb").MongoClient;
 var assert = require("assert");
 
-var url = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWD}@ds157500.mlab.com:57500/${process.env.DB_NAME}`;
+var url = `mongodb://${process.env.DB_USER || "dev"}:${process.env.DB_PASSWD || "B{#~L[P7bkwe"}@ds157500.mlab.com:57500/${process.env.DB_NAME || "serene-fjord-88779"}`;
 
-exports.Connect = function() {
+Connect = function(success) {
     client.connect(url, function(err, db) {
-        if (err)
-        {
+        if (err) {
             console.log("Database failure.");
             return;
         }
 
-        const wines = db.collection("wines");
-        wines.find({}).toArray(function(err, result) {
-            if (err)
-            {
-                console.log(err);
-                return;
-            }
+        success(db);
+    });
+};
 
-            console.log("result", result);
+exports.Find = function(query, callback) {
+    Connect(function(db) {
+        const wines = db.collection("wines");
+        wines.find(query).toArray(function(err, result) {
+            if (err)
+                console.log(err);
+            else
+                callback(result);
         });
     });
 };
 
-exports.Find = function(f) {
-
+exports.FindOne = function(query, callback) {
+    Connect(function(db) {
+        const wines = db.collection("wines");
+        wines.findOne(query, function(err, result) {
+            if (err)
+                console.log(err);
+            else
+                callback(result);
+        });
+    });
 };
