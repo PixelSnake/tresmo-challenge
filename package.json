@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "mongodb": "^2.2.25",
     "restify": "^4.3.0"
   },
   "devDependencies": {},
