@@ -16,7 +16,7 @@ Connect = function(success) {
 
 exports.Find = function(query, callback) {
     Connect(function(db) {
-        const wines = db.collection("wines");
+        var wines = db.collection("wines");
         wines.find(query).toArray(function(err, result) {
             if (err)
                 console.log(err);
@@ -28,7 +28,7 @@ exports.Find = function(query, callback) {
 
 exports.FindOne = function(query, callback) {
     Connect(function(db) {
-        const wines = db.collection("wines");
+        var wines = db.collection("wines");
         wines.findOne(query, function(err, result) {
             if (err)
                 console.log(err);
