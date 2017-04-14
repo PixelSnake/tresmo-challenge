@@ -1,17 +1,30 @@
+var _ = require('underscore');
+
 var restify = require("restify");
 var wines = require("./wines");
 
-process.on('uncaughtException', function (error) {
-    console.log(error.stack);
-});
+var mongodb = require("./database");
+mongodb.Connect(main);
 
-var server = restify.createServer();
-server.use(restify.queryParser());
-server.use(restify.bodyParser());
+function main(db) {
+    _.db = db;
 
-server.get("wines", wines.list);
-server.get("wines/:id", wines.getById);
+    var server = restify.createServer();
+    server.use(restify.queryParser());
+    server.use(restify.bodyParser());
 
-server.post("wines", wines.create);
 
-server.listen(process.env.PORT || 8080);
+    server.get("wines", wines.list);
+    server.get("wines/:id", wines.getById);
+
+    server.post("wines", wines.create);
+
+    server.put("wines/:id", wines.modify);
+
+    server.del("wines/:id", wines.delete);
+
+
+    var port = process.env.PORT || 8080;
+    server.listen(port);
+    console.log("Listening on port " + port + "...");
+}
