@@ -24,7 +24,7 @@ var num_test = 0;
 var num_failed_tests = 0;
 var tests = [
     function() {
-        test_list(200, []);
+        test_list_1(200, []);
     },
     function() {
         test_get_by_id(1, 400, {
@@ -62,7 +62,57 @@ var tests = [
         });
     },
     function() {
-        test_list(200, [
+        test_list_2(200, [{
+            id: 1,
+            name: "Cabernet sauvignon",
+            year: 2013,
+            country: "France",
+            type: "red",
+            description: "The Sean Connery of red wines"
+        }]);
+    },
+    function() {
+        test_list_3(200, [{
+            id: 1,
+            name: "Cabernet sauvignon",
+            year: 2013,
+            country: "France",
+            type: "red",
+            description: "The Sean Connery of red wines"
+        }]);
+    },
+    function() {
+        test_list_4(200, [
+            {
+                id: 1,
+                name: "Cabernet sauvignon",
+                year: 2013,
+                country: "France",
+                type: "red",
+                description: "The Sean Connery of red wines"
+            },
+            {
+                id: 2,
+                name: "Zinfandel",
+                year: 1990,
+                country: "Croatia",
+                type: "red",
+                description: "Thick and jammy"
+            }
+        ]);
+    },
+    function() {
+        test_list_5(200, [{
+            id: 2,
+            name: "Zinfandel",
+            year: 1990,
+            country: "Croatia",
+            type: "red",
+            description: "Thick and jammy"
+        }]);
+    },
+    function() {
+        test_list_1(200, [
             {
                 "id": 1,
                 "name": "Cabernet sauvignon",
@@ -171,12 +221,76 @@ function clear_db() {
     );
 }
 
-function test_list(status, content) {
+function test_list_1(status, content) {
     var veryfier = new Veryfier(status, content, function(v) {
         next_test(v);
     });
     var req = {
         query: {},
+        params: {}
+    };
+
+    env.setVerifyer(veryfier);
+
+    wines.list(req, env, noop);
+}
+
+function test_list_2(status, content) {
+    var veryfier = new Veryfier(status, content, function(v) {
+        next_test(v);
+    });
+    var req = {
+        query: {
+            year: 2013
+        },
+        params: {}
+    };
+
+    env.setVerifyer(veryfier);
+
+    wines.list(req, env, noop);
+}
+
+function test_list_3(status, content) {
+    var veryfier = new Veryfier(status, content, function(v) {
+        next_test(v);
+    });
+    var req = {
+        query: {
+            country: "France"
+        },
+        params: {}
+    };
+
+    env.setVerifyer(veryfier);
+
+    wines.list(req, env, noop);
+}
+
+function test_list_4(status, content) {
+    var veryfier = new Veryfier(status, content, function(v) {
+        next_test(v);
+    });
+    var req = {
+        query: {
+            type: "red"
+        },
+        params: {}
+    };
+
+    env.setVerifyer(veryfier);
+
+    wines.list(req, env, noop);
+}
+
+function test_list_5(status, content) {
+    var veryfier = new Veryfier(status, content, function(v) {
+        next_test(v);
+    });
+    var req = {
+        query: {
+            name: "Zinfandel"
+        },
         params: {}
     };
 
