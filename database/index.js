@@ -9,7 +9,7 @@ exports.Update = require("./modify").Update;
 
 exports.Delete = require("./delete").Delete;
 
-var url = `mongodb://${process.env.DB_USER || "dev"}:${process.env.DB_PASSWD || "B{#~L[P7bkwe"}@ds157500.mlab.com:57500/${process.env.DB_NAME || "serene-fjord-88779"}`;
+var url = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWD}@ds157500.mlab.com:57500/${process.env.DB_NAME}`;
 
 exports.Connect = function(success) {
     client.connect(url, function(err, db) {

@@ -30,12 +30,16 @@ exports.getById = function(req, res, next)
         if (data)
         {
             delete data._id;
+            res.status(200);
             res.send(data);
         }
         else
+        {
+            res.status(400);
             res.send({
                 error: "UNKNOWN_OBJECT"
             });
+        }
     });
     next();
 };

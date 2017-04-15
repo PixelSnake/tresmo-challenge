@@ -16,11 +16,15 @@ exports.create = function(req, res, next)
     else
     {
         req.params.year = parseInt(req.params.year);
-
+        
         db.Insert(req.params, function(result) {
             if (result.error !== undefined)
                 res.status(500);
-            res.send(result);
+            else
+            {
+                res.status(200);
+                res.send(result);
+            }
         });
     }
 

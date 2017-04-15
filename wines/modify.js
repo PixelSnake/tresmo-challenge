@@ -34,7 +34,7 @@ exports.modify = function(req, res, next)
             }
             else
             {
-                if (result === undefined)
+                if (!result)
                 {
                     res.status(400);
                     res.send({
