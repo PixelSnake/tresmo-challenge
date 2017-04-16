@@ -1,6 +1,7 @@
 var _ = require("underscore");
 
-exports.Update = function(id, data, callback) {
+exports.Update = function(id, data, callback)
+{
     var wines = _.db.collection("wines");
 
     wines.findOneAndUpdate(

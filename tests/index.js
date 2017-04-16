@@ -181,14 +181,16 @@ var tests = [
 var noop = function() {};
 
 
-function main(db) {
+function main(db)
+{
     _.db = db;
 
     clear_db();
     next_test();
 }
 
-function next_test(result) {
+function next_test(result)
+{
     if (num_test > 0)
     {
         console.log("Test " + num_test + ": ", result);
@@ -207,7 +209,8 @@ function next_test(result) {
     }
 }
 
-function clear_db() {
+function clear_db()
+{
     var wines = _.db.collection("wines");
     wines.removeMany();
 
@@ -221,7 +224,8 @@ function clear_db() {
     );
 }
 
-function test_list_1(status, content) {
+function test_list_1(status, content)
+{
     var veryfier = new Veryfier(status, content, function(v) {
         next_test(v);
     });
@@ -235,7 +239,8 @@ function test_list_1(status, content) {
     wines.list(req, env, noop);
 }
 
-function test_list_2(status, content) {
+function test_list_2(status, content)
+{
     var veryfier = new Veryfier(status, content, function(v) {
         next_test(v);
     });
@@ -251,7 +256,8 @@ function test_list_2(status, content) {
     wines.list(req, env, noop);
 }
 
-function test_list_3(status, content) {
+function test_list_3(status, content)
+{
     var veryfier = new Veryfier(status, content, function(v) {
         next_test(v);
     });
@@ -267,7 +273,8 @@ function test_list_3(status, content) {
     wines.list(req, env, noop);
 }
 
-function test_list_4(status, content) {
+function test_list_4(status, content)
+{
     var veryfier = new Veryfier(status, content, function(v) {
         next_test(v);
     });
@@ -283,7 +290,8 @@ function test_list_4(status, content) {
     wines.list(req, env, noop);
 }
 
-function test_list_5(status, content) {
+function test_list_5(status, content)
+{
     var veryfier = new Veryfier(status, content, function(v) {
         next_test(v);
     });
@@ -299,7 +307,8 @@ function test_list_5(status, content) {
     wines.list(req, env, noop);
 }
 
-function test_get_by_id(id, status, content) {
+function test_get_by_id(id, status, content)
+{
     var veryfier = new Veryfier(status, content, function(v) {
         next_test(v);
     });
@@ -315,7 +324,8 @@ function test_get_by_id(id, status, content) {
     wines.getById(req, env, noop);
 }
 
-function test_insert_wine_1(status, content) {
+function test_insert_wine_1(status, content)
+{
     var veryfier = new Veryfier(status, content, function(v) {
         next_test(v);
     });
@@ -335,7 +345,8 @@ function test_insert_wine_1(status, content) {
     wines.create(req, env, noop);
 }
 
-function test_insert_wine_2(status, content) {
+function test_insert_wine_2(status, content)
+{
     var veryfier = new Veryfier(status, content, function(v) {
         next_test(v);
     });
@@ -355,7 +366,8 @@ function test_insert_wine_2(status, content) {
     wines.create(req, env, noop);
 }
 
-function test_insert_wine_3(status, content) {
+function test_insert_wine_3(status, content)
+{
     var veryfier = new Veryfier(status, content, function(v) {
         next_test(v);
     });
@@ -374,7 +386,8 @@ function test_insert_wine_3(status, content) {
     wines.create(req, env, noop);
 }
 
-function test_modify_wine_1(status, content) {
+function test_modify_wine_1(status, content)
+{
     var veryfier = new Veryfier(status, content, function(v) {
         next_test(v);
     });
@@ -395,7 +408,8 @@ function test_modify_wine_1(status, content) {
     wines.modify(req, env, noop);
 }
 
-function test_modify_wine_2(status, content) {
+function test_modify_wine_2(status, content)
+{
     var veryfier = new Veryfier(status, content, function(v) {
         next_test(v);
     });
@@ -415,7 +429,8 @@ function test_modify_wine_2(status, content) {
     wines.modify(req, env, noop);
 }
 
-function test_modify_wine_3(status, content) {
+function test_modify_wine_3(status, content)
+{
     var veryfier = new Veryfier(status, content, function(v) {
         next_test(v);
     });
@@ -436,7 +451,8 @@ function test_modify_wine_3(status, content) {
     wines.modify(req, env, noop);
 }
 
-function test_delete_wine(status, content) {
+function test_delete_wine(status, content)
+{
     var veryfier = new Veryfier(status, content, function(v) {
         next_test(v);
     });

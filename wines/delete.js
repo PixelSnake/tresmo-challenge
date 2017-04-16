@@ -1,6 +1,9 @@
 var db = require("../database");
 
-exports.delete = function(req, res, next) {
+exports.delete = function(req, res, next)
+{
+    res.charSet("utf-8");
+
     var id = parseInt(req.params.id);
 
     db.Delete(id, function(err, result) {

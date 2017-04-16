@@ -1,6 +1,9 @@
 var db = require("../database");
 
-exports.list = function (req, res, next) {
+exports.list = function (req, res, next)
+{
+    res.charSet("utf-8");
+
     var query = {};
 
     if (req.query.name)
@@ -25,8 +28,10 @@ exports.list = function (req, res, next) {
 
 exports.getById = function(req, res, next)
 {
+    res.charSet("utf-8");
+
     var id = parseInt(req.params.id);
-    db.FindOne({id: id}, function(data) {
+    db.FindOne({id: id}, function(data){
         if (data)
         {
             delete data._id;

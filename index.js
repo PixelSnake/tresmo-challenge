@@ -6,7 +6,8 @@ var wines = require("./wines");
 var mongodb = require("./database");
 mongodb.Connect(main);
 
-function main(db) {
+function main(db)
+{
     _.db = db;
 
     var server = restify.createServer();

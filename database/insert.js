@@ -2,7 +2,8 @@ var _ = require("underscore");
 
 var tools = require("./tools");
 
-exports.Insert = function(query, callback) {
+exports.Insert = function(query, callback)
+{
     var wines = _.db.collection("wines");
 
     tools.getNextSequence("wine_id", function(seq) {

@@ -3,6 +3,8 @@ var tools = require("./tools");
 
 exports.create = function(req, res, next)
 {
+    res.charSet("utf-8");
+
     var validation = tools.validate(req.params);
 
     if (validation)

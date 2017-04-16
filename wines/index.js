@@ -1,5 +1,3 @@
-var db = require("../database");
-
 exports.list = require("./find").list;
 exports.getById = require("./find").getById;
 

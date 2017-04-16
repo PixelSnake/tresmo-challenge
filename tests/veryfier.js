@@ -1,7 +1,9 @@
 var _ = require("underscore");
 
-exports.Veryfier = class{
-    constructor(assert_status, assert_content, next) {
+exports.Veryfier = class
+{
+    constructor(assert_status, assert_content, next)
+    {
         if (_.verbose)
         {
             console.log("Desired status:  ", assert_status);
@@ -13,7 +15,8 @@ exports.Veryfier = class{
         this.next = next;
     }
 
-    takeNote(x) {
+    takeNote(x)
+    {
         if (x.status)
             this.status = x.status;
         if (x.content)
@@ -23,7 +26,8 @@ exports.Veryfier = class{
             this.next(this.verify());
     }
 
-    verify() {
+    verify()
+    {
         if (_.verbose)
         {
             console.log("Status:  ", this.status);

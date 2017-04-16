@@ -1,4 +1,5 @@
-exports.validate = function(params) {
+exports.validate = function(params)
+{
     var error = false;
     var validation = {};
     var valid_types = ["red", "white", "rose"];
