@@ -25,7 +25,7 @@ function main(db)
     server.del("wines/:id", wines.delete);
 
 
-    var port = process.env.PORT || 8080;
+    var port = process.env.PORT;
     server.listen(port);
     console.log("Listening on port " + port + "...");
 }

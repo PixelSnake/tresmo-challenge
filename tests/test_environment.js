@@ -26,3 +26,7 @@ exports.send = function(content)
 
     return content;
 };
+
+exports.charSet = function(c) {
+
+};
